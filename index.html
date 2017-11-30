@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <script src="https://code.createjs.com/easeljs-0.8.2.min.js"></script>
+   <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+   <script src="./Recorderjs/dist/recorder.js"></script>
+   <script src="./src.js"></script>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body onload="init()">
+   <div class="container">
+      <h1>Panner Test</h1>
+      <div class="col-sm-12">
+         <canvas id="demoCanvas" class="center-block" width="400" height="400" style="background-color:Black"></canvas>
+      </div>
+      <div class="col-sm-3">
+         panningModel : <select id="panmodel" onchange="setup()"><option selected>equalpower</option><option>HRTF</option></select>
+      </div>
+      <div class="col-sm-6 center-block btn-group" role="group">
+         <button class="btn btn-primary" onclick="playAudio()"><i class="glyphicon glyphicon-play"></i>Play</button>
+         <button class="btn btn-primary" onclick="stopAudio()"><i class="glyphicon glyphicon-pause"></i>Stop</button>
+         <button class="btn btn-danger" onclick="startRecording()"><i class="glyphicon glyphicon-record"></i>Record</button>
+         <button class="btn btn-danger" onclick="endRecording()"><i class="glyphicon glyphicon-stop"></i>RecStop</button>
+      </div>
+   </div>
+   <div class="container">
+      <form class=”form-inline”>
+         <div class="form-group col-sm-2">
+            <label for="trgIndex">対象</label>
+            <input type="number" class="form-control text-right" id="trgIndex" disabled>
+         </div>
+         <div class="form-group col-sm-4">
+            <label for="xpos">x座標</label>
+            <input type="number" class="form-control text-right" id="xpos" step="0.001">
+         </div>
+         <div class="form-group col-sm-4">
+            <label for="ypos">y座標</label>
+            <input type="number" class="form-control text-right" id="ypos" step="0.001">
+         </div>
+         <div class="form-group col-sm-10">
+            <label for="delayTimeSlider">Delay</label>
+            <input id="delayTimeSlider" type="range" min="0.05" max="1" step="0.01" value="0.3"/>
+         </div>
+         <div class="form-group col-sm-2">
+            <label for="delayTime">deleyTime</label>
+            <input type="number" class="form-control text-right" id="delayTime" step="0.01" value="0.3"/>
+         </div>
+         <div class="form-group col-sm-10">
+            <label for="delayFeedbackSlider"></label>
+            <input id="delayFeedbackSlider" type="range" min="0" max="1" step="0.01" value="0.25"/>
+         </div>
+         <div class="form-group col-sm-2">
+            <label for="delayFeedback">delayFeedback</label>
+            <input type="number" class="form-control text-right" id="delayFeedback" step="0.01" value="0.25"/>
+         </div>
+         <div class="form-group col-sm-10">
+            <label for="delaySendRatioSlider">DelaySend</label>
+            <input id="delaySendRatioSlider" type="range" min="0" max="1" step="0.01" value="0.2"/>
+         </div>
+         <div class="form-group col-sm-2">
+            <label for="delaySendRatio">SendRatio</label>
+            <input type="number" class="form-control text-right" id="delaySendRatio" step="0.01" value="0.2"/>
+         </div>
+         <div class="form-group col-sm-10">
+            <label for="reverbSendRatioSlider">ReverbSend</label>
+            <input id="reverbSendRatioSlider" type="range" min="0" max="1" step="0.01" value="0.15"/>
+         </div>
+         <div class="form-group col-sm-2">
+            <label for="reverbSendRatio">SendRatio</label>
+            <input type="number" class="form-control text-right" id="reverbSendRatio" step="0.01" value="0.15"/>
+         </div>
+      </form>
+   </div>
+</body>
+</html>
