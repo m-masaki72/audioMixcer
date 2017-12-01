@@ -10,7 +10,7 @@ var preInstance;
 
 function init() {
    //init any variable
-   n = 2;
+   n = 5;
    source = new Array(n);
    buffer = new Array(n);
    audioctx = new AudioContext();
@@ -23,7 +23,7 @@ function init() {
    merger = new Array(n);
    feedback = new Array(n);
    reverb = new Array(n);
-   sensitivity = 3;
+   sensitivity = 1.5;
    px = new Array(n);
    py = new Array(n);
    pz = new Array(n);
@@ -86,10 +86,23 @@ function loadMP3(){
       (function(){
          var li = i;
          var req = new XMLHttpRequest();
-         if(li == 1){
-            req.open("GET", "momoca.mp3", true);
-         }else {
-            req.open("GET", "momoca2.mp3", true);
+         switch(li){
+            case 0:
+               req.open("GET", "./stems/bass.mp3", true);
+               break;
+            case 1:
+               req.open("GET", "./stems/drum.mp3", true);
+               break;
+            case 2:
+               req.open("GET", "./stems/lead1.mp3", true);
+               break;
+            case 3:
+               req.open("GET", "./stems/lead2.mp3", true);
+               break;
+            case 4:
+               req.open("GET", "./stems/lead3.mp3", true);
+               break;
+
          }
          req.responseType = "arraybuffer";
          req.onload = function() {
