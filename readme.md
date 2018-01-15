@@ -3,7 +3,7 @@
 web上で立体音響を使ったミックス作業を行えるように開発しているソフトウェアです．
 
 ## Demo
-![Demo Page](https://m-masaki72.github.io/audioMixcer/)
+[Demo Page](https://m-masaki72.github.io/audioMixer/)
 
 ## Description
 WebAudioApiを利用して，ブラウザ上ミックス作業が行える環境を構築しています．
